@@ -15,7 +15,7 @@ async def handle(msg, message):
 
 
 async def send_config(msg, message):
-    with open('config.json', 'r') as config:
+    with open('conf.json', 'r') as config:
         config = str(config)
         compressed = zlib.compress(config.encode())
     await message.channel.send('/sync !proceed:->' + str(compressed))
@@ -24,7 +24,7 @@ async def send_config(msg, message):
 async def load_config(msg, message):
     compressed = bytes(message.split('push !proceed:->', 1))
     config = zlib.decompress(compressed).decode()
-    f = open("config.json", "w")
+    f = open("conf.json", "w")
     f.write(config)
     f.close()
 
