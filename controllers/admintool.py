@@ -69,4 +69,6 @@ async def is_admin(message):
         data = json.load(f)
     if str(message.author) in data['roles']['admin']['members']:
         return True
+    else:
+        return False
     return False
