@@ -39,11 +39,6 @@
       "active": true,
       "plugin": "checktool",
       "support": "*Usage: `/check <node_name>`"
-    },
-    "/sync": {
-      "active": true,
-      "plugin": "synctool",
-      "support": "*Usage: `/sync <origin_node>`"
     }
   },
   "roles": {
