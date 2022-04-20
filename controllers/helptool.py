@@ -16,5 +16,5 @@ async def handle(msg, message):
                 response += '\n**:white_check_mark:  ' + data['controllers'][item]['plugin'].title() + ':**\n' + \
                             data['controllers'][item]['support']
         else:
-            response += '\n**:x:  ' + data['controllers'][item]['plugin'].title() + '** -> Zurzeit deaktiviert.'
+            response += '\n**:x:  ' + data['controllers'][item]['plugin'].title() + '** -> Zurzeit deaktiviert.\n'
     await message.channel.send(response)
