@@ -23,6 +23,6 @@ class MyClient(discord.Client):
 
 client = MyClient()
 
-with open('conf.json', 'r') as file:
+with open('private.json', 'r') as file:
     data = json.load(file)
 client.run(data['token'])
