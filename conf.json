@@ -1,0 +1,45 @@
+{
+  "controllers": {
+    "/ping": {
+      "active": true,
+      "plugin": "pingtool",
+      "support": "Usage:   `/ping <ip> <arguments>`. **Beispiel:** `/ping ottnec.de`\n**Optionale Argumente:**\n\t`-t` -> Zusätzliche Traceroute. **Beispiel:** `/ping ottnec.de -t`\n"
+    },
+    "/lookup": {
+      "active": true,
+      "plugin": "lookuptool",
+      "support": "Usage:   `/lookup <domain> <arguments>`. **Beispiel:** `/lookup ottnec.de` (Lookup von `A` und `AAAA` Records.)\n**Optionale Argumente:**\n\t`+MX +SRV +PTR +CNAME` -> Zusätzliches Records-Lookup. **Beispiel:** `/lookup ottnec.de +MX`\n"
+    },
+    "/help": {
+      "active": true,
+      "plugin": "helptool",
+      "support": "Usage:   `/help`. **Beispiel:** `/help`\n"
+    },
+    "/perm": {
+      "active": true,
+      "plugin": "admintool",
+      "support": "*Usage:  `/perm <option> <value>`. **Beispiel:** `/perm add Daniel Ottmann#9005`\nMit `/perm add <username#tag>` hinzufügen von Bot-Rechten. Mit `/perm del <username#tag>` entfehrnt man diese wieder.\n`/perm on ping` aktiviert das Pingtool, demnach `/perm off ping` deaktiviert es für jeden.\n"
+    },
+    "/track": {
+      "active": false,
+      "plugin": "trackingtool",
+      "support": ""
+    },
+    "/compress": {
+      "active": false,
+      "plugin": "compresstool",
+      "support": ""
+    }
+  },
+  "roles": {
+    "admin": {
+      "members": [
+        "Theo | NXMX#1994",
+        "Daniel Ottmann#9005",
+        "marvintv#2256",
+        "Xenic#3281"
+      ]
+    }
+  },
+  "token": "ODU5MTQ2NjU0NzI1MDQ2Mjcy.YNocrA.TEo2oJ12lQGLsWWM2wD_hmqQdN4"
+}
