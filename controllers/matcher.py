@@ -18,7 +18,7 @@ async def command_matcher(message):
         with open('conf.json', 'r') as c:
             dt = json.load(c)
         cache_active = dt['active']
-        if (cache_active == my_name) or msg[0] == '/fallback':
+        if (cache_active == my_name) or msg[0] in ['/fallback', '/git', '/check']:
             print(my_name, cache_active)
             for item in commands:
                 if msg[0] == item:
