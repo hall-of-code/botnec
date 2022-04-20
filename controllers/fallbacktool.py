@@ -12,6 +12,7 @@ async def handle(msg, message):
             await message.channel.send(f'```\nDer Node "{name}" wird aktiviert.\n```')
         else:
             await message.channel.send(f'```\nDer Node {name} wird deaktiviert.\n```')
+
         with open('conf.json', 'r') as f:
             conf = json.load(f)
         conf['active'] = msg[1]
