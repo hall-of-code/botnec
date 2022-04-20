@@ -21,7 +21,7 @@ async def ping_host(msg, message):
                 response += await list_trace(msg, message)
         await message.channel.send(response + "```")
     except Exception:
-        await message.channel.send(f"```\n[Pingtool -> {msg[1]}]\n\n Es besteht ein Fehler.")
+        await message.channel.send(f"```\n[Pingtool -> {msg[1]}]\n\n Es besteht ein Fehler.```")
 
 
 def ping_trace(ip, message):
