@@ -7,7 +7,6 @@ from controllers.admintool import is_admin
 
 commands = ['/ping', '/lookup', '/help', '/perm', '/track', '/compress', '/git', '/check', '/fallback']
 
-my_name = ""
 with open('private.json', 'r') as n:
     d = json.load(n)
 my_name = d['name']
