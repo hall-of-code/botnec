@@ -16,7 +16,7 @@ class MyClient(discord.Client):
         value = s[1] or 'none'
         if command == '/git':
             with open('private.json', 'r') as f:
-                d = json.load(file)
+                d = json.load(f)
             if value == d['name'] or value == "*":
                 time.sleep(5)
                 os.popen('git pull')
