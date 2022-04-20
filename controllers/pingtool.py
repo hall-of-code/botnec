@@ -8,17 +8,20 @@ async def handle(msg, message):
 
 
 async def ping_host(msg, message):
-    print('pinging')
-    result = ping(msg[1], count=3, interval=0.5, timeout=6)
-    response = f"```\n[Pingtool -> {msg[1]}]\n"
-    if not result.is_alive:
-        failing_point = ping_trace(msg[1], message) or "Error"
-        response += "\n" + failing_point + "\n"
-    else:
-        response += f"\nAVG: {result.avg_rtt} | Maximum: {result.max_rtt} | Minimum: {result.min_rtt} \n"
-        if '-t' in msg:
-            response += await list_trace(msg, message)
-    await message.channel.send(response + "```")
+    try:
+        print('pinging')
+        result = ping(msg[1], count=3, interval=0.5, timeout=6)
+        response = f"```\n[Pingtool -> {msg[1]}]\n"
+        if not result.is_alive:
+            failing_point = ping_trace(msg[1], message) or "Error"
+            response += "\n" + failing_point + "\n"
+        else:
+            response += f"\nAVG: {result.avg_rtt} | Maximum: {result.max_rtt} | Minimum: {result.min_rtt} \n"
+            if '-t' in msg:
+                response += await list_trace(msg, message)
+        await message.channel.send(response + "```")
+    except Exception:
+        await message.channel.send(f"```\n[Pingtool -> {msg[1]}]\n\n Es besteht ein Fehler.")
 
 
 def ping_trace(ip, message):
