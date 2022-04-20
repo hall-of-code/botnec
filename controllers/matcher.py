@@ -10,7 +10,7 @@ commands = ['/ping', '/lookup', '/help', '/perm', '/track', '/compress', '/git',
 my_name = ""
 with open('private.json', 'r') as n:
     d = json.load(n)
-    my_name = d['name']
+my_name = d['name']
 
 
 async def command_matcher(message):
