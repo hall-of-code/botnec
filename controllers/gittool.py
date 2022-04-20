@@ -9,7 +9,7 @@ async def handle(msg, message):
     name = data['name']
     if is_admin(message) is True:
         if msg[1] == name or msg[1] == '*':
-            await message.channel.send(f'```\nDer Node {name} wird gestoppt...\n```')
+            await message.channel.send(f'```\nDer Node "{name}" wird gestoppt...\n```')
             exit()
     else:
         await message.channel.send(f'```\nDu hast keine Berrechtigungen für diesen Befehl.\n```')
