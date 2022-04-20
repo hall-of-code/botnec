@@ -33,5 +33,5 @@ async def command_matcher(message):
     if msg[0] == "/fallback" or random.randrange(1,7) == 1:
         with open('conf.json', 'r') as f:
             data = json.load(f)
-            global cache_active = data['active']
+            cache_active = data['active']
 
