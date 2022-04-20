@@ -9,7 +9,7 @@ commands = ['/ping', '/lookup', '/help', '/perm', '/track', '/compress', '/git',
 
 async def command_matcher(message):
     msg = shlex.split(message.content.lstrip())
-    if message.guild or is_admin(message):
+    if message.guild or is_admin(message) is True:
         for item in commands:
             if msg[0] == item:
                 with open('conf.json', 'r') as f:

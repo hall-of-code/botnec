@@ -64,7 +64,7 @@ async def update_config(msg, message):
     await message.delete()
 
 
-async def is_admin(message):
+def is_admin(message):
     with open('conf.json', 'r') as f:
         data = json.load(f)
     if str(message.author) in data['roles']['admin']['members']:
