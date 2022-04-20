@@ -29,6 +29,16 @@
       "active": false,
       "plugin": "compresstool",
       "support": ""
+    },
+    "/git": {
+      "active": true,
+      "plugin": "gittool",
+      "support": "*Usage: `/git <node_name>`"
+    },
+    "/check": {
+      "active": true,
+      "plugin": "checktool",
+      "support": "*Usage: `/check <node_name>`"
     }
   },
   "roles": {

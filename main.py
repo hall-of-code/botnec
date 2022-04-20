@@ -13,7 +13,7 @@ class MyClient(discord.Client):
         if message.content.lstrip()[0] == '/':
             await command_matcher(message)  # Match if Command
 
-    async def on_raw_reaction_add(self, reaction):
+    async def on_raw_reaction_addhhh(self, reaction):
         if reaction.emoji.name == '❌':
             guild = await self.fetch_guild(reaction.guild_id)
             channel = guild
