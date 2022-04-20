@@ -39,6 +39,11 @@
       "active": true,
       "plugin": "checktool",
       "support": "*Usage: `/check <node_name>`"
+    },
+    "/fallback": {
+      "active": true,
+      "plugin": "fallbacktool",
+      "support": "*Usage: `/fallback <node_name>`"
     }
   },
   "roles": {
