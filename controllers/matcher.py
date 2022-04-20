@@ -20,6 +20,7 @@ with open('private.json', 'r') as n:
 async def command_matcher(message):
     msg = shlex.split(message.content.lstrip())
     if message.guild or is_admin(message) is True:
+        global cache_active, my_name
         if cache_active == my_name:
             for item in commands:
                 if msg[0] == item:
@@ -33,5 +34,6 @@ async def command_matcher(message):
     if msg[0] == "/fallback" or random.randrange(1,7) == 1:
         with open('conf.json', 'r') as f:
             data = json.load(f)
+            global cache_active
             cache_active = data['active']
 
