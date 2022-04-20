@@ -1,6 +1,7 @@
 import json
 from controllers.admintool import is_admin
 
+
 async def handle(msg, message):
     await message.delete()
     with open('conf.json', 'r') as f:
