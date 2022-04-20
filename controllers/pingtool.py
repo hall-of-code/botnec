@@ -4,6 +4,7 @@ from icmplib import ping, multiping, traceroute, resolve
 async def handle(msg, message):
     print('pingingd')
     await ping_host(msg, message)
+    await message.delete()
 
 
 async def ping_host(msg, message):

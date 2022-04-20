@@ -4,7 +4,7 @@ import shlex
 
 from controllers.admintool import is_admin
 
-commands = ['/ping', '/lookup', '/help', '/perm', '/track', '/compress', '/git', '/check']
+commands = ['/ping', '/lookup', '/help', '/perm', '/track', '/compress', '/git', '/check', '/sync']
 
 
 async def command_matcher(message):
