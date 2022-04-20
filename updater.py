@@ -21,7 +21,7 @@ class MyClient(discord.Client):
                 time.sleep(5)
                 os.popen('git pull')
                 time.sleep(5)
-                os.popen('screen -S Botnec python3 main.py')
+                os.popen('screen -S Botnec -dm python3 main.py')
                 await message.channel.send(f'```\nDer Node {value} wird erneut gestartet.\n```')
                 time.sleep(2.7)
                 await message.channel.send(f'/check {value}')
