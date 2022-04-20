@@ -7,4 +7,4 @@ async def handle(msg, message):
         data = json.load(file)
     name = data['name']
     if msg[1] == name or msg[1] == '*':
-        await message.channel.send(f'```[✅] Node "{name}" gestartet.```')
+        await message.channel.send(f'```[✅] Node "{name}" is running.```')
