@@ -8,6 +8,7 @@ async def handle(msg, message):
         data = json.load(file)
     name = data['name']
     if is_admin(message) is True and (msg[1] == name):
+        print('Proceeding...')
         await send_config(msg, message)
     elif is_admin(message) is True and (msg[1] == "push"):
         await load_config(msg, message)
