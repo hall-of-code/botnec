@@ -1,5 +1,6 @@
 import json
 import os
+import random
 import time
 
 from controllers.admintool import is_admin
@@ -29,6 +30,8 @@ async def update_updater(msg, message, name):
         time.sleep(3)
         # await message.channel.send(f'```\nDer Updater "UP-{name}" wird erneut gestartet...\n```')
         os.popen('screen -S Botnec_Updater -dm python3 updater.py')
+        time.sleep(random.randrange(12, 24))
+        await message.channel.send(f'/check UP-{name}')
     except Exception:
         await message.channel.send(f'```\n[{name}] Es ist ein unerwarteter Fehler aufgetreten.\n```')
 
