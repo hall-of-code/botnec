@@ -44,7 +44,7 @@ class MyClient(discord.Client):
         elif command == '/check' and str(message.author) in config['roles']['admin']['members']:
             with open('private.json', 'r') as f:
                 d = json.load(f)
-            if s[1] == ("UP-"+d['name']):
+            if s[1] == ("UP-" + d['name']):
                 await message.channel.send(f'```\n[✅] Updater "UP-{d["name"]}" is running.\n```')
 
 
