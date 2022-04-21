@@ -14,7 +14,7 @@ async def handle(msg, message):
     if len(msg) > 2:
         argu = msg[2]
     if is_admin(message) is True:
-        if (msg[1] == name or msg[1] in ["*", '-']) and argu == "-u":
+        if (msg[1] == "UP-" + name or msg[1] in ["*", '-']) and argu == "-u":
             await message.channel.send(f'```\n[{name}] Der Updater "UP-{name}" wird neugestartet.\n```')
             await update_updater(msg, message, name)
         elif msg[1] == name or msg[1] == '*':
