@@ -21,7 +21,9 @@ class MyClient(discord.Client):
             with open('private.json', 'r') as f:
                 d = json.load(f)
             if value == d['name'] or value == "*":
-                time.sleep(5)
+                time.sleep(1)
+                os.popen('git stash')
+                time.sleep(4)
                 os.popen('git pull')
                 time.sleep(5)
                 os.popen('screen -S Botnec -dm python3 main.py')
