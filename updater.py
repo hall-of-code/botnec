@@ -11,7 +11,7 @@ class MyClient(discord.Client):
         print('Logged on as {0}!'.format(self.user))
 
     async def on_message(self, message):
-        if "/" in message:
+        if "/" in message.content:
             print('Message from {0.author}: {0.content}'.format(message))
             s = message.content.lstrip().split(' ')
             command = s[0] or ''
