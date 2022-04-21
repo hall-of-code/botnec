@@ -53,7 +53,7 @@ class MyClient(discord.Client):
                 await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="Updating..."))
                 with open('private.json', 'r') as f:
                     d = json.load(f)
-                if s[1] == ("UP-" + d['name']):
+                if (s[1] == ("UP-" + d['name'])) or s[1] in ['*', '-']:
                     await message.channel.send(f'```\n[✅] Updater "UP-{d["name"]}" is running.\n```')
                     await message.delete()
                     await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=" -> Ruhemodus"))
