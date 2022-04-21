@@ -29,7 +29,7 @@ class MyClient(discord.Client):
                 time.sleep(2)
                 os.popen('git pull')
                 time.sleep(2)
-                #await message.channel.send(f'```\nDer Updater "UP-{d["name"]}" wird erneut gestartet.\n```')
+                # await message.channel.send(f'```\nDer Updater "UP-{d["name"]}" wird erneut gestartet.\n```')
                 exit()
             elif value == d['name'] or value == "*":
                 time.sleep(1)
@@ -46,6 +46,7 @@ class MyClient(discord.Client):
                 d = json.load(f)
             if s[1] == ("UP-" + d['name']):
                 await message.channel.send(f'```\n[✅] Updater "UP-{d["name"]}" is running.\n```')
+                await message.delete()
 
 
 client = MyClient()
