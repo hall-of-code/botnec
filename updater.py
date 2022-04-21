@@ -38,7 +38,7 @@ class MyClient(discord.Client):
                 os.popen('git pull')
                 time.sleep(5)
                 os.popen('screen -S Botnec -dm python3 main.py')
-                await message.channel.send(f'```\nDer Node "{d["name"]}" wird erneut gestartet.\n```')
+                await message.channel.send(f'```\n[UP-{d["name"]}] Der Node "{d["name"]}" wird erneut gestartet.\n```')
                 time.sleep(random.randrange(12, 25))
                 await message.channel.send(f'/check {d["name"]}')
                 await message.delete()
