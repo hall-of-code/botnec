@@ -15,6 +15,7 @@ class MyClient(discord.Client):
         s = message.content.lstrip().split(' ')
         command = s[0] or ''
         value = s[1] or 'none'
+        msg2 = s[2] or ''
         with open('conf.json', 'r') as conf:
             config = json.load(conf)
         if command == '/git' and str(message.author) in config['roles']['admin']['members']:
@@ -27,9 +28,17 @@ class MyClient(discord.Client):
                 os.popen('git pull')
                 time.sleep(5)
                 os.popen('screen -S Botnec -dm python3 main.py')
-                await message.channel.send(f'```\nDer Node {d["name"]} wird erneut gestartet.\n```')
+                await message.channel.send(f'```\nDer Node "{d["name"]}" wird erneut gestartet.\n```')
                 time.sleep(random.randrange(2.9, 8))
                 await message.channel.send(f'/check {d["name"]}')
+            if (value == d['name'] or value == '*') and msg2 == '-u':
+                time.sleep(1)
+                os.popen('git stash')
+                time.sleep(2)
+                os.popen('git pull')
+                time.sleep(2)
+                await message.channel.send(f'```\nDer Updater "UP-{d["name"]}" wird erneut gestartet.\n```')
+                exit()
 
 
 client = MyClient()
