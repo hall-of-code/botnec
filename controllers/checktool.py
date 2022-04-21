@@ -10,5 +10,5 @@ async def handle(msg, message):
         data = json.load(file)
     name = data['name']
     if is_admin(message) is True and (msg[1] == name or msg[1] == '*'):
-        timne.sleep(random.randrange(1, 3))
+        time.sleep(random.randrange(1, 3))
         await message.channel.send(f'```[✅] Node "{name}" is running.```')
