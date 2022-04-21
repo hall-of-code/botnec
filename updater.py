@@ -23,11 +23,11 @@ class MyClient(discord.Client):
                 config = json.load(conf)
             if command == '/git' and str(message.author) in config['roles']['admin']['members']:
                 await self.change_presence(status=discord.Status.online)
-                await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="Updating..."))
                 time.sleep(3)
                 with open('private.json', 'r') as f:
                     d = json.load(f)
                 if (value == d['name'] or value in ['*', '-']) and msg2 == '-u':
+                    await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="Updating..."))
                     time.sleep(1)
                     os.popen('git stash')
                     time.sleep(2)
@@ -36,6 +36,7 @@ class MyClient(discord.Client):
                     # await message.channel.send(f'```\nDer Updater "UP-{d["name"]}" wird erneut gestartet.\n```')
                     exit()
                 elif value == d['name'] or value == "*":
+                    await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="Updating..."))
                     time.sleep(1)
                     os.popen('git stash')
                     time.sleep(4)
@@ -45,7 +46,7 @@ class MyClient(discord.Client):
                     await message.channel.send(f'```\n[UP-{d["name"]}] Der Node "{d["name"]}" wird erneut gestartet.\n```')
                     time.sleep(random.randrange(12, 25))
                     await message.channel.send(f'/check {d["name"]}')
-                    await self.change_presence(activity=discord.Game(name="Ruhemodus wird aktiviert..."))
+                    await self.change_presence(activity=discord.Game(name=" -> Ruhemodus"))
                     time.sleep(3)
             elif command == '/check' and str(message.author) in config['roles']['admin']['members']:
                 await self.change_presence(status=discord.Status.online)
