@@ -10,5 +10,3 @@ async def handle(msg, message):
     name = data['name']
     if is_admin(message) is True and (msg[1] == name or msg[1] == '*'):
         await message.channel.send(f'```[✅] Node "{name}" is running.```')
-        time.sleep(3)
-        await message.delete()
