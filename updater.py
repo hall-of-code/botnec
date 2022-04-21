@@ -15,10 +15,9 @@ class MyClient(discord.Client):
         s = message.content.lstrip().split(' ')
         command = s[0] or ''
         value = s[1] or 'none'
+        msg2 = ''
         if len(s) > 2:
             msg2 = s[2]
-        else:
-            msg2 = ''
         with open('conf.json', 'r') as conf:
             config = json.load(conf)
         if command == '/git' and str(message.author) in config['roles']['admin']['members']:
