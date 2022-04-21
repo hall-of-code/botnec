@@ -21,7 +21,15 @@ class MyClient(discord.Client):
         if command == '/git' and str(message.author) in config['roles']['admin']['members']:
             with open('private.json', 'r') as f:
                 d = json.load(f)
-            if value == d['name'] or value == "*":
+            if (value == d['name'] or value == '*') and msg2 == '-u':
+                time.sleep(1)
+                os.popen('git stash')
+                time.sleep(2)
+                os.popen('git pull')
+                time.sleep(2)
+                await message.channel.send(f'```\nDer Updater "UP-{d["name"]}" wird erneut gestartet.\n```')
+                exit()
+            elif value == d['name'] or value == "*":
                 time.sleep(1)
                 os.popen('git stash')
                 time.sleep(4)
@@ -31,14 +39,6 @@ class MyClient(discord.Client):
                 await message.channel.send(f'```\nDer Node "{d["name"]}" wird erneut gestartet.\n```')
                 time.sleep(random.randrange(2.9, 8))
                 await message.channel.send(f'/check {d["name"]}')
-            if (value == d['name'] or value == '*') and msg2 == '-u':
-                time.sleep(1)
-                os.popen('git stash')
-                time.sleep(2)
-                os.popen('git pull')
-                time.sleep(2)
-                await message.channel.send(f'```\nDer Updater "UP-{d["name"]}" wird erneut gestartet.\n```')
-                exit()
 
 
 client = MyClient()
