@@ -11,6 +11,7 @@ class MyClient(discord.Client):
         print('Logged on as {0}!'.format(self.user))
 
     async def on_message(self, message):
+        await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=" -> Ruhemodus"))
         if "/" in message.content:
             print('Message from {0.author}: {0.content}'.format(message))
             s = message.content.lstrip().split(' ')
