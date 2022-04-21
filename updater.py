@@ -56,7 +56,7 @@ class MyClient(discord.Client):
                     await message.channel.send(f'```\n[✅] Updater "UP-{d["name"]}" is running.\n```')
                     await message.delete()
                     await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=" -> Ruhemodus"))
-                    time.sleep(3)
+                    await self.change_presence(status=discord.Status.offline)
             await self.change_presence(status=discord.Status.offline)
 
 
