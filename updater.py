@@ -26,7 +26,7 @@ class MyClient(discord.Client):
                 time.sleep(3)
                 with open('private.json', 'r') as f:
                     d = json.load(f)
-                if (value == d['name'] or value in ['*', '-']) and msg2 == '-u':
+                if (value == "UP-" + d['name'] or value in ['*', '-']) and msg2 == '-u':
                     await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="Updating..."))
                     time.sleep(1)
                     os.popen('git stash')
