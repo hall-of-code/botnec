@@ -47,4 +47,4 @@ client = MyClient()
 
 with open('private.json', 'r') as file:
     data = json.load(file)
-client.run(data['token'])
+client.run(data['utoken'])
