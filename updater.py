@@ -23,7 +23,7 @@ class MyClient(discord.Client):
         if command == '/git' and str(message.author) in config['roles']['admin']['members']:
             with open('private.json', 'r') as f:
                 d = json.load(f)
-            if (value == d['name'] or value == '*') and msg2 == '-u':
+            if (value == d['name'] or value in ['*', '-']) and msg2 == '-u':
                 time.sleep(1)
                 os.popen('git stash')
                 time.sleep(2)
