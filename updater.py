@@ -9,8 +9,6 @@ import discord
 class MyClient(discord.Client):
     async def on_ready(self):
         print('Logged on as {0}!'.format(self.user))
-        time.sleep(9)
-        await self.change_presence(status=discord.Status.offline)
 
     async def on_message(self, message):
         print('Message from {0.author}: {0.content}'.format(message))
@@ -49,6 +47,7 @@ class MyClient(discord.Client):
             if s[1] == ("UP-" + d['name']):
                 await message.channel.send(f'```\n[✅] Updater "UP-{d["name"]}" is running.\n```')
                 await message.delete()
+                await self.change_presence(status=discord.Status.offline)
 
 
 client = MyClient()
