@@ -57,6 +57,7 @@ class MyClient(discord.Client):
                     await message.delete()
                     await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=" -> Ruhemodus"))
                     await self.change_presence(status=discord.Status.offline)
+            await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=" -> Ruhemodus"))
             await self.change_presence(status=discord.Status.offline)
 
 
