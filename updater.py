@@ -41,6 +41,11 @@ class MyClient(discord.Client):
                 await message.channel.send(f'```\n[UP-{d["name"]}] Der Node "{d["name"]}" wird erneut gestartet.\n```')
                 time.sleep(random.randrange(12, 25))
                 await message.channel.send(f'/check {d["name"]}')
+        elif command == '/check' and str(message.author) in config['roles']['admin']['members']:
+            with open('private.json', 'r') as f:
+                d = json.load(f)
+            if s[1] == d['name']:
+                await message.channel.send(f'```\n[✅] Updater "UP-{d["name"]}" is running.\n```')
 
 
 client = MyClient()
