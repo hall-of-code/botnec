@@ -9,7 +9,9 @@ async def handle(msg, message):
     with open('private.json', 'r') as file:
         data = json.load(file)
     name = data['name']
-    argu = msg[2] or ""
+    argu = ""
+    if len(msg) > 2:
+        argu = msg[2]
     if is_admin(message) is True:
         if (msg[1] == name or msg[1] in ["*", '-']) and argu == "-u":
             await message.channel.send(f'```\nDer Updater "UP-{name}" wird gestoppt...\n```')
