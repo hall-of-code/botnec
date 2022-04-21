@@ -33,6 +33,7 @@ class MyClient(discord.Client):
                     time.sleep(2)
                     os.popen('git pull')
                     time.sleep(2)
+                    await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=" -> Ruhemodus"))
                     # await message.channel.send(f'```\nDer Updater "UP-{d["name"]}" wird erneut gestartet.\n```')
                     exit()
                 elif value == d['name'] or value == "*":
@@ -46,7 +47,7 @@ class MyClient(discord.Client):
                     await message.channel.send(f'```\n[UP-{d["name"]}] Der Node "{d["name"]}" wird erneut gestartet.\n```')
                     time.sleep(random.randrange(12, 25))
                     await message.channel.send(f'/check {d["name"]}')
-                    await self.change_presence(activity=discord.Game(name=" -> Ruhemodus"))
+                    await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=" -> Ruhemodus"))
                     time.sleep(3)
             elif command == '/check' and str(message.author) in config['roles']['admin']['members']:
                 await self.change_presence(status=discord.Status.online)
