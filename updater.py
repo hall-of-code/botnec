@@ -23,7 +23,7 @@ class MyClient(discord.Client):
                 config = json.load(conf)
             if command == '/git' and str(message.author) in config['roles']['admin']['members']:
                 await self.change_presence(status=discord.Status.online)
-                await self.change_presence(activity=discord.Game(name="Updating..."))
+                await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="Updating..."))
                 time.sleep(3)
                 with open('private.json', 'r') as f:
                     d = json.load(f)
@@ -49,13 +49,13 @@ class MyClient(discord.Client):
                     time.sleep(3)
             elif command == '/check' and str(message.author) in config['roles']['admin']['members']:
                 await self.change_presence(status=discord.Status.online)
-                await self.change_presence(activity=discord.Game(name="Updating..."))
+                await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="Updating..."))
                 with open('private.json', 'r') as f:
                     d = json.load(f)
                 if s[1] == ("UP-" + d['name']):
                     await message.channel.send(f'```\n[✅] Updater "UP-{d["name"]}" is running.\n```')
                     await message.delete()
-                    await self.change_presence(activity=discord.Game(name="Ruhemodus wird aktiviert..."))
+                    await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name=" -> Ruhemodus"))
                     time.sleep(3)
             await self.change_presence(status=discord.Status.offline)
 
