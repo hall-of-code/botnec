@@ -41,7 +41,6 @@ class MyClient(discord.Client):
                 await message.channel.send(f'```\n[UP-{d["name"]}] Der Node "{d["name"]}" wird erneut gestartet.\n```')
                 time.sleep(random.randrange(12, 25))
                 await message.channel.send(f'/check {d["name"]}')
-                await message.delete()
 
 
 client = MyClient()
