@@ -29,7 +29,7 @@ class MyClient(discord.Client):
                 time.sleep(2)
                 os.popen('git pull')
                 time.sleep(2)
-                await message.channel.send(f'```\nDer Updater "UP-{d["name"]}" wird erneut gestartet.\n```')
+                #await message.channel.send(f'```\nDer Updater "UP-{d["name"]}" wird erneut gestartet.\n```')
                 exit()
             elif value == d['name'] or value == "*":
                 time.sleep(1)
@@ -40,7 +40,8 @@ class MyClient(discord.Client):
                 os.popen('screen -S Botnec -dm python3 main.py')
                 await message.channel.send(f'```\nDer Node "{d["name"]}" wird erneut gestartet.\n```')
                 time.sleep(random.randrange(12, 25))
-                await message.channel.send(f'/check *')
+                await message.channel.send(f'/check {d["name"]}')
+                await message.delete()
 
 
 client = MyClient()
