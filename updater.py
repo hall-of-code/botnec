@@ -39,8 +39,8 @@ class MyClient(discord.Client):
                 time.sleep(5)
                 os.popen('screen -S Botnec -dm python3 main.py')
                 await message.channel.send(f'```\nDer Node "{d["name"]}" wird erneut gestartet.\n```')
-                time.sleep(random.randrange(10, 25))
-                await message.channel.send(f'/check {d["name"]}')
+                time.sleep(random.randrange(12, 25))
+                await message.channel.send(f'/check *')
 
 
 client = MyClient()
