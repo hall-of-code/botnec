@@ -7,7 +7,7 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
-    print('Logged on as {0}!'.format(self.user))
+    print('Logged on as {0}!'.format(discord.user))
     await client.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="/help"))
 
 
