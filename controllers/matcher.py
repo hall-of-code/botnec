@@ -21,7 +21,7 @@ async def command_matcher(message):
         if (cache_active == my_name) or msg[0] in ['/fallback', '/git', '/check']:
             print(my_name, cache_active)
             for item in commands:
-                if msg[0] == item:
+                if msg[0].lower() == item:
                     with open('conf.json', 'r') as f:
                         tools = json.load(f)
                     if tools['controllers'][item] and tools['controllers'][item]['active'] is True:
