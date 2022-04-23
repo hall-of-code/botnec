@@ -7,7 +7,7 @@ from controllers.matcher import command_matcher
 class MyClient(discord.Client):
     async def on_ready(self):
         print('Logged on as {0}!'.format(self.user))
-        await self.change_presence(activity=discord.Activity(type=discord.ActivityType.playing, name="/help"))
+        await self.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="/help"))
 
     async def on_message(self, message):
         print('Message from {0.author}: {0.content}'.format(message))
